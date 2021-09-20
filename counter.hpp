@@ -8,7 +8,7 @@ template<class T>
 T get_random_number(T from, T to) {
     std::random_device random_device;
     std::mt19937 gen(random_device());
-    std::uniform_int_distribution<size_t> uniform_distribution(from, to);
+    std::uniform_int_distribution<T> uniform_distribution(from, to);
     return uniform_distribution(gen);
 }
 
