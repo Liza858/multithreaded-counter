@@ -47,9 +47,10 @@ void inc(Counter *c) {
 }
 
 int get(Counter *c) {
+    size_t counter_capacity = c->get_capacity();
+    std::atomic_int *counter_array = c->get_counter_array();
     int sum = 0;
-    for (size_t i = 0; i < c->get_capacity(); i++) {
-        std::atomic_int *counter_array = c->get_counter_array();
+    for (size_t i = 0; i < counter_capacity; i++) {
         sum += counter_array[i].load();
     }
     return sum;
